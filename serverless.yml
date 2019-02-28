@@ -10,6 +10,6 @@ functions:
     handler: wine.handler
     events:
       - http:
-          path: wine
+          path: wine/{cheeseName}
           method: get
           cors: true
