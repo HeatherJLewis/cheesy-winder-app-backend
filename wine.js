@@ -1,7 +1,6 @@
 const serverless = require('serverless-http');
 const express = require('express');
 const app = express();
-
 const cors = require('cors');
 
 app.use(express.json());
@@ -12,9 +11,11 @@ app.use(cors());
 const databaseService = require('./databaseservice')
 
 //app.get is our request type for GET
-app.get('/wine/:cheeseName', function (request, response) {
+app.get('/wine/:cheeseId', function (request, response) {
 
-  databaseService.getWine()
+  const idOfCheeseSelected = request.params.cheeseId;
+
+  databaseService.getWine(idOfCheeseSelected)
     .then(function (results) {
       //We got the tasks OK
       response.json(results);
