@@ -11,11 +11,11 @@ app.use(cors());
 const databaseService = require('./databaseservice')
 
 //app.get is our request type for GET
-app.get('/wine', function (request, response) {
+app.get('/wine/:cheeseId', function (request, response) {
 
-  //const idOfCheeseSelected = request.params.cheeseId;
+  const idOfCheeseSelected = request.params.cheeseId;
 
-  databaseService.getWine()
+  databaseService.getWine(idOfCheeseSelected)
     .then(function (results) {
       //We got the tasks OK
       response.json(results);

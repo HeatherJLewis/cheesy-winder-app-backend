@@ -11,10 +11,10 @@ function getDatabaseConnection() {
 
 //this is a json object that sets up the properties of the connection
 
-function getWine() {
+function getWine(idOfCheeseSelected) {
     const connection = getDatabaseConnection();
     return new Promise(function (resolve, reject) {
-        connection.query("SELECT * FROM Wine", function (error, results, fields) {
+        connection.query("SELECT * FROM Wine WHERE cheeseId =?", idOfCheeseSelected, function (error, results, fields) {
                 
             if (error) {
                 connection.destroy();

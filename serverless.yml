@@ -16,7 +16,7 @@ functions:
     # the events block below defines how to trigger the tasks.handler code
     events:
       - http:
-          path: wine
+          path: wine/{cheeseId}
           method: get
           cors: true
 
