@@ -11,7 +11,7 @@ provider:
     RDS_DATABASE: ${opt:RDS_DATABASE}
 
 functions:
-  tasks:
+  cheesywinder:
     handler: wine.handler
     # the events block below defines how to trigger the tasks.handler code
     events:
