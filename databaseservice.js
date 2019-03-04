@@ -30,10 +30,10 @@ function getCheese() {
     });
 }
 
-function getWine(idOfCheeseSelected) {
+function getWine(nameOfCheeseSelected) {
     const connection = getDatabaseConnection();
     return new Promise(function (resolve, reject) {
-        connection.query("SELECT * FROM Wine WHERE cheeseId =?", idOfCheeseSelected, function (error, results, fields) {
+        connection.query("SELECT * FROM Wine JOIN Cheese ON Wine.cheeseId = Cheese.cheeseId WHERE cheeseName=?", nameOfCheeseSelected, function (error, results, fields) {
                 
             if (error) {
                 connection.destroy();

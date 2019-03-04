@@ -30,11 +30,11 @@ app.get('/cheese', function (request, response) {
 
 })
 
-app.get('/wine/:cheeseId', function (request, response) {
+app.get('/wine/:cheeseName', function (request, response) {
 
-  const idOfCheeseSelected = request.params.cheeseId;
+  const nameOfCheeseSelected = request.params.cheeseName;
 
-  databaseService.getWine(idOfCheeseSelected)
+  databaseService.getWine(nameOfCheeseSelected)
     .then(function (results) {
       //We got the tasks OK
       response.json(results);
