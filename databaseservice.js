@@ -11,6 +11,25 @@ function getDatabaseConnection() {
 
 //this is a json object that sets up the properties of the connection
 
+function getCheese() {
+    const connection = getDatabaseConnection();
+    return new Promise(function (resolve, reject) {
+        connection.query("SELECT * FROM Cheese", function (error, results, fields) {
+                
+            if (error) {
+                connection.destroy();
+                return reject(error);
+            }
+            else {
+                connection.end(function () {
+                    return resolve(results);
+                });
+
+            }
+        });
+    });
+}
+
 function getWine(idOfCheeseSelected) {
     const connection = getDatabaseConnection();
     return new Promise(function (resolve, reject) {
@@ -34,5 +53,6 @@ function getWine(idOfCheeseSelected) {
 //just trying to return all now
 
 module.exports = {
-    getWine
+    getWine,
+    getCheese
 }
