@@ -11,11 +11,48 @@ app.use(cors());
 const databaseService = require('./databaseservice')
 
 //app.get is our request type for GET
+
+app.get('/cheese', function (request, response) {
+
+
+  databaseService.getCheese()
+    .then(function (results) {
+      //We got the tasks OK
+      response.json(results);
+    })
+
+    .catch(function (error) {
+      //something went wrong when getting the tasks
+      response.status(500);
+      response.json(error);
+
+    });
+
+})
+
 app.get('/wine/:cheeseId', function (request, response) {
 
   const idOfCheeseSelected = request.params.cheeseId;
 
   databaseService.getWine(idOfCheeseSelected)
+    .then(function (results) {
+      //We got the tasks OK
+      response.json(results);
+    })
+
+    .catch(function (error) {
+      //something went wrong when getting the tasks
+      response.status(500);
+      response.json(error);
+
+    });
+
+})
+
+app.get('/cheese', function (request, response) {
+
+
+  databaseService.getCheese()
     .then(function (results) {
       //We got the tasks OK
       response.json(results);
