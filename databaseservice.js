@@ -33,7 +33,7 @@ function getCheese() {
 function getWine(nameOfCheeseSelected) {
     const connection = getDatabaseConnection();
     return new Promise(function (resolve, reject) {
-        connection.query("SELECT * FROM Wine JOIN Cheese ON Wine.cheeseId = Cheese.cheeseId WHERE cheeseName=?", nameOfCheeseSelected, function (error, results, fields) {
+        connection.query("SELECT wineName, wineDescription, wineType FROM Wine JOIN Cheese ON Wine.cheeseId = Cheese.cheeseId WHERE cheeseName=?", nameOfCheeseSelected, function (error, results, fields) {
                 
             if (error) {
                 connection.destroy();
