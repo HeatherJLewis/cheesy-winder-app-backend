@@ -4,19 +4,21 @@ Back-end repository for node REST API linking React 'Don't Worry Brie Happy' App
 
 ## Pre-requisites 
 
+Ensure serverless framework is installed: 
+
+#### `npm install --global serverless`
+
+Then all other dependencies managed by node:
+
+#### `npm install`
+
+## Dependencies
+
 - node 
 - Express
 - Serverless
 - CORS
 - mySQL
-
-Initialise with node: 
-
-#### `npm init -f`
-
-Install frameworks:
-
-#### `npm install --save express serverless-http cors mysql`
 
 ## Deployment
 
